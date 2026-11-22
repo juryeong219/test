@@ -1,7 +1,3 @@
-<title>혼잡스 소개</title>
-<meta name="claude:viewport-fit-sides" content="cover">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=IBM+Plex+Sans+KR:wght@400;500;600&display=swap">
-<style>
   /* Layout: one narrow column; the hero is a crowd of the name with a single one lit up. */
   :root {
     --bg: #F2F4F9;
@@ -94,53 +90,8 @@
   .links .addr { color: var(--muted); min-width: 0; overflow-wrap: anywhere; }
 
   footer { font-size: 13px; color: var(--muted); }
-</style>
 
-<div class="page">
-  <header class="hero">
-    <div class="crowd" id="crowd" aria-hidden="true"></div>
-    <p class="eyebrow">크리에이터 소개</p>
-    <h1>혼잡스</h1>
-    <p class="tagline">혼자서 잡(Job)을 할 수 있는 사람.</p>
-    <div class="meter" aria-label="오늘의 혼잡도: 혼잡">
-      <span>오늘의 혼잡도</span>
-      <span class="bars"><i></i><i></i><i></i><i></i></span>
-      <strong>혼잡</strong>
-    </div>
-  </header>
-
-  <section>
-    <h2>소개</h2>
-    <p>안녕하세요, 혼잡스입니다.</p>
-    <p><span class="slot">어떤 사람인지, 어떤 활동을 하는지 두세 문장으로 적어 주세요.</span></p>
-  </section>
-
-  <section>
-    <h2>하는 일</h2>
-    <ul class="works">
-      <li><h3><span class="slot">콘텐츠 1</span></h3><p>어떤 콘텐츠인지 한 문장으로 설명합니다.</p></li>
-      <li><h3><span class="slot">콘텐츠 2</span></h3><p>어떤 콘텐츠인지 한 문장으로 설명합니다.</p></li>
-      <li><h3><span class="slot">콘텐츠 3</span></h3><p>어떤 콘텐츠인지 한 문장으로 설명합니다.</p></li>
-    </ul>
-  </section>
-
-  <section>
-    <h2>만나는 곳</h2>
-    <ul class="links">
-      <li><span class="name">채널</span><span class="addr"><span class="slot">채널 주소</span></span></li>
-      <li><span class="name">SNS</span><span class="addr"><span class="slot">계정 주소</span></span></li>
-      <li><span class="name">문의</span><span class="addr"><span class="slot">이메일 주소</span></span></li>
-    </ul>
-  </section>
-
-  <footer>© 2026 혼잡스</footer>
-</div>
-
-<script>
-  (function () {
-    var el = document.getElementById('crowd');
-    var html = '';
-    for (var i = 0; i < 48; i++) html += '<span' + (i === 9 ? ' class="me"' : '') + '>혼잡스</span>';
-    el.innerHTML = html;
-  })();
-</script>
+  .status { display: inline-flex; align-items: center; gap: 8px; margin-left: 12px; }
+  .status::before { content: ""; width: 8px; height: 8px; border-radius: 50%; background: var(--lv2); }
+  .status[data-state="ok"]::before { background: var(--lv1); }
+  .status[data-state="error"]::before { background: var(--lv4); }
