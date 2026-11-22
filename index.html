@@ -1,0 +1,146 @@
+<title>혼잡스 소개</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=IBM+Plex+Sans+KR:wght@400;500;600&display=swap">
+<style>
+  /* Layout: one narrow column; the hero is a crowd of the name with a single one lit up. */
+  :root {
+    --bg: #F2F4F9;
+    --surface: #FFFFFF;
+    --ink: #151A30;
+    --muted: #5C6382;
+    --line: #D5DAE8;
+    --crowd: #C9CFE2;
+    --accent: #2B4BF2;
+    --slot: #E6EAFB;
+    --lv1: #2FA36B; --lv2: #D9A514; --lv3: #E07A1F; --lv4: #D8343F;
+    --display: "Black Han Sans", "Apple SD Gothic Neo", "Malgun Gothic", sans-serif;
+    --body: "IBM Plex Sans KR", "Apple SD Gothic Neo", "Malgun Gothic", sans-serif;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #0F1322; --surface: #181D33; --ink: #ECEFFA; --muted: #9AA2C2;
+      --line: #2A3152; --crowd: #262D4B; --accent: #8198FF; --slot: #1E2646;
+      --lv1: #46C088; --lv2: #E6BB3A; --lv3: #F0914A; --lv4: #F0606A;
+      color-scheme: dark;
+    }
+  }
+  :root[data-theme="dark"] {
+    --bg: #0F1322; --surface: #181D33; --ink: #ECEFFA; --muted: #9AA2C2;
+    --line: #2A3152; --crowd: #262D4B; --accent: #8198FF; --slot: #1E2646;
+    --lv1: #46C088; --lv2: #E6BB3A; --lv3: #F0914A; --lv4: #F0606A;
+    color-scheme: dark;
+  }
+
+  * { box-sizing: border-box; }
+  body {
+    background: var(--bg);
+    color: var(--ink);
+    font-family: var(--body);
+    font-size: 17px;
+    line-height: 1.75;
+    padding-left: max(16px, env(safe-area-inset-left, 0px));
+    padding-right: max(16px, env(safe-area-inset-right, 0px));
+    padding-block: 40px 56px;
+    word-break: keep-all;
+  }
+  .page { max-width: 720px; margin: 0 auto; display: flex; flex-direction: column; gap: 56px; }
+
+  /* Hero */
+  .crowd {
+    display: flex; flex-wrap: wrap; gap: 0 0.35em;
+    font-family: var(--display);
+    font-size: clamp(30px, 8vw, 58px);
+    line-height: 1.2;
+    height: 3.6em; overflow: hidden;
+    color: var(--crowd);
+    user-select: none;
+  }
+  .crowd .me { color: var(--accent); }
+  .hero { display: flex; flex-direction: column; gap: 20px; }
+  .eyebrow { font-size: 13px; font-weight: 600; letter-spacing: 0.08em; color: var(--muted); margin: 0; }
+  h1 {
+    font-family: var(--display); font-weight: 400;
+    font-size: clamp(56px, 16vw, 112px); line-height: 1; margin: 0;
+    letter-spacing: -0.01em;
+  }
+  .tagline { font-size: 20px; margin: 0; max-width: 30em; text-wrap: balance; }
+
+  .meter { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; font-size: 14px; color: var(--muted); }
+  .meter .bars { display: flex; gap: 4px; }
+  .meter .bars i { width: 28px; height: 8px; border-radius: 2px; background: var(--line); }
+  .meter .bars i:nth-child(1) { background: var(--lv1); }
+  .meter .bars i:nth-child(2) { background: var(--lv2); }
+  .meter .bars i:nth-child(3) { background: var(--lv3); }
+  .meter .bars i:nth-child(4) { background: var(--lv4); }
+  .meter strong { color: var(--lv4); font-weight: 600; }
+
+  /* Sections */
+  section { display: flex; flex-direction: column; gap: 16px; }
+  h2 {
+    font-family: var(--display); font-weight: 400; font-size: 28px; line-height: 1.2;
+    margin: 0; padding-bottom: 12px; border-bottom: 2px solid var(--ink);
+  }
+  p { margin: 0; max-width: 34em; }
+  .slot { background: var(--slot); border-bottom: 1px dashed var(--accent); padding: 1px 6px; border-radius: 3px; }
+
+  .works { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 12px; }
+  .works li { background: var(--surface); border: 1px solid var(--line); border-radius: 6px; padding: 18px; min-width: 0; display: flex; flex-direction: column; gap: 6px; }
+  .works h3 { font-size: 17px; font-weight: 600; margin: 0; }
+  .works p { font-size: 15px; color: var(--muted); line-height: 1.6; }
+
+  .links { list-style: none; margin: 0; padding: 0; }
+  .links li { display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap; padding: 14px 0; border-bottom: 1px solid var(--line); }
+  .links .name { font-weight: 600; }
+  .links .addr { color: var(--muted); min-width: 0; overflow-wrap: anywhere; }
+
+  footer { font-size: 13px; color: var(--muted); }
+</style>
+
+<div class="page">
+  <header class="hero">
+    <div class="crowd" id="crowd" aria-hidden="true"></div>
+    <p class="eyebrow">크리에이터 소개</p>
+    <h1>혼잡스</h1>
+    <p class="tagline"><span class="slot">한 줄 소개가 들어갈 자리입니다</span></p>
+    <div class="meter" aria-label="오늘의 혼잡도: 혼잡">
+      <span>오늘의 혼잡도</span>
+      <span class="bars"><i></i><i></i><i></i><i></i></span>
+      <strong>혼잡</strong>
+    </div>
+  </header>
+
+  <section>
+    <h2>소개</h2>
+    <p>안녕하세요, 혼잡스입니다.</p>
+    <p><span class="slot">어떤 사람인지, 어떤 활동을 하는지 두세 문장으로 적어 주세요.</span></p>
+  </section>
+
+  <section>
+    <h2>하는 일</h2>
+    <ul class="works">
+      <li><h3><span class="slot">콘텐츠 1</span></h3><p>어떤 콘텐츠인지 한 문장으로 설명합니다.</p></li>
+      <li><h3><span class="slot">콘텐츠 2</span></h3><p>어떤 콘텐츠인지 한 문장으로 설명합니다.</p></li>
+      <li><h3><span class="slot">콘텐츠 3</span></h3><p>어떤 콘텐츠인지 한 문장으로 설명합니다.</p></li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>만나는 곳</h2>
+    <ul class="links">
+      <li><span class="name">채널</span><span class="addr"><span class="slot">채널 주소</span></span></li>
+      <li><span class="name">SNS</span><span class="addr"><span class="slot">계정 주소</span></span></li>
+      <li><span class="name">문의</span><span class="addr"><span class="slot">이메일 주소</span></span></li>
+    </ul>
+  </section>
+
+  <footer>© 2026 혼잡스</footer>
+</div>
+
+<script>
+  (function () {
+    var el = document.getElementById('crowd');
+    var html = '';
+    for (var i = 0; i < 48; i++) html += '<span' + (i === 9 ? ' class="me"' : '') + '>혼잡스</span>';
+    el.innerHTML = html;
+  })();
+</script>
